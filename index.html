@@ -17,16 +17,102 @@
       }
     </style>
   </head>
-  <body>
-    <p class="font-karla">Regular</p>
-    <p class="font-karla font-bold">Bold</p>
-    <p class="font-karla italic">Italic</p>
-    Contact Us First Name This field is required Last Name This field is
-    required Email Address Please enter a valid email address This field is
-    required Query Type General Enquiry Support Request Please select a query
-    type Message This field is required I consent to being contacted by the team
-    To submit this form, please consent to being contacted Submit Message Sent!
-    Thanks for completing the form. We'll be in touch soon!
+  <body
+    class="bg-green-lighter text-grey-darker px-4 py-6 font-karla flex flex-col justify-center items-center md:min-h-screen gap-2"
+  >
+    <div
+      class="container p-5 md:p-7 rounded-lg bg-white flex flex-col gap-6 max-w-120"
+    >
+      <header>
+        <h1 class="text-2xl font-bold">Contact Us</h1>
+      </header>
+      <main>
+        <form class="flex flex-col gap-4">
+          <!-- Name -->
+          <div
+            class="name flex flex-col md:flex-row justify-between gap-4 md:gap-2"
+          >
+            <!-- first name -->
+            <label for="first-name" class="text-field">
+              <span class="text-field__label"
+                >First Name <span class="text-field__required">*</span></span
+              >
+              <input type="text" id="first-name" class="text-field__input" />
+              <p class="field__error">This field is required</p>
+            </label>
+
+            <!-- last name -->
+            <label for="last-name" class="text-field">
+              <span class="text-field__label"
+                >Last Name <span class="text-field__required">*</span></span
+              >
+              <input type="text" id="last-name" class="text-field__input" />
+              <p class="field__error">This field is required</p>
+            </label>
+          </div>
+
+          <!-- Email Address -->
+          <label for="email" class="text-field">
+            <span class="text-field__label">
+              Email Address <span class="text-field__required">*</span>
+            </span>
+            <input type="text" id="email" class="text-field__input" />
+            <p class="field__error">Please enter a valid email address</p>
+          </label>
+
+          <!-- Query Type -->
+          <fieldset class="radio-field">
+            <legend class="text-field__label">
+              Query Type <span class="text-field__required">*</span>
+            </legend>
+
+            <div class="flex flex-col md:flex-row gap-2">
+              <label for="general" class="radio-option">
+                <input
+                  type="radio"
+                  id="general"
+                  name="query-type"
+                  class="accent-green-medium"
+                />
+                General Enquiry
+              </label>
+
+              <label for="support" class="radio-option">
+                <input
+                  type="radio"
+                  id="support"
+                  name="query-type"
+                  class="accent-green-medium"
+                />
+                Support Request
+              </label>
+            </div>
+
+            <p class="field__error">Please select a query type</p>
+          </fieldset>
+
+          <!-- Message -->
+          <label for="email" class="text-field"
+            ><span class="text-field__label"
+              >Message <span class="text-field__required">*</span></span
+            >
+            <textarea
+              type="text"
+              id="email"
+              class="text-field__input"
+              rows="5"
+            ></textarea>
+            <p class="field__error">This field is required</p>
+          </label>
+
+          <!--  -->
+        </form>
+      </main>
+    </div>
+
+    <!--    I consent to being contacted by the team To submit this
+    form, please consent to being contacted Submit Message Sent! Thanks for
+    completing the form. We'll be in touch soon! -->
 
     <footer class="attribution">
       Challenge by

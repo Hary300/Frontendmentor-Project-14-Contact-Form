@@ -36,3 +36,31 @@
   /* Font family */
   --font-karla: 'Karla', sans-serif;
 }
+
+.text-field {
+  @apply flex flex-col gap-1 flex-1;
+}
+
+.text-field__required {
+  color: var(--color-green-medium);
+}
+
+.text-field__label {
+  font-size: 0.875rem;
+}
+
+.text-field__input {
+  @apply flex items-center w-full rounded-lg border px-3 py-1 border-grey-medium hover:border-green-medium cursor-pointer hover:shadow-[0_0_1px_#87a3a6] focus:border-green-medium focus:outline-0 focus:shadow-[0_0_2px_#87a3a6];
+}
+
+.radio-field {
+  @apply pt-1 flex flex-col gap-2;
+}
+
+.radio-option {
+  @apply flex items-center w-full rounded-lg gap-1 border px-3 py-1.5 border-grey-medium hover:border-green-medium cursor-pointer hover:shadow-[0_0_1px_#87a3a6] has-checked:bg-green-lighter;
+}
+
+.field__error {
+  color: red;
+}
