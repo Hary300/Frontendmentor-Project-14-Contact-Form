@@ -2,20 +2,29 @@ const form = document.querySelector('form');
 const firstNameInput = document.querySelector('#first-name-input');
 const lastNameInput = document.querySelector('#last-name-input');
 const emailInput = document.querySelector('#email-input');
-const selectedQueryRadioInput = document.querySelector(
-  'input[name="query-type"]:checked'
-);
-
-const messageInput = document.querySelector('#message');
-const consentCheckbox = document.querySelector('#consent');
+const messageInput = document.querySelector('#message-input');
 
 form.addEventListener('submit', function (event) {
   event.preventDefault();
+
+  const selectedQueryRadioInput = document.querySelector(
+    'input[name="query-type"]:checked'
+  );
+
+  const consentCheckboxInput = document.querySelector(
+    'input[name="consent"]:checked'
+  );
 
   const firstName = validateTextInput(firstNameInput);
   const lastName = validateTextInput(lastNameInput);
   const email = validateTextInput(emailInput);
   const message = validateTextInput(messageInput);
+
+  const query = validateSelectionInput('query-type', 'radio-field');
+
+  const consent = validateSelectionInput('consent', 'checkbox-field');
+
+  console.log(firstName, lastName, email, message, query, consent);
 });
 
 function validateTextInput(textInput) {
@@ -31,4 +40,21 @@ function validateTextInput(textInput) {
   fieldError.classList.remove('field__error--show');
 
   return value;
+}
+
+function validateSelectionInput(name, field) {
+  const fieldset = document.querySelector(`.${field}`);
+  const fieldError = fieldset.querySelector('.field__error');
+
+  const selectionInput = document.querySelector(
+    `input[name="${name}"]:checked`
+  );
+
+  if (!selectionInput) {
+    fieldError.classList.add('field__error--show');
+    return;
+  }
+
+  fieldError.classList.remove('field__error--show');
+  return selectionInput.value;
 }

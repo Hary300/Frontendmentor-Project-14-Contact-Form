@@ -94,13 +94,13 @@
           </fieldset>
 
           <!-- Message -->
-          <label for="message" class="text-field"
+          <label for="message-input" class="text-field"
             ><span class="text-field__label"
               >Message <span class="text-field__required">*</span></span
             >
             <textarea
               type="text"
-              id="message"
+              id="message-input"
               class="text-field__input"
               rows="5"
             ></textarea>
@@ -110,10 +110,16 @@
           <!-- Checkbox -->
           <fieldset class="checkbox-field">
             <label
-              for="consent"
+              for="consent-input"
               class="checkbox-option flex gap-3 items-center cursor-pointer"
             >
-              <input type="checkbox" id="consent" class="accent-green-medium" />
+              <input
+                type="checkbox"
+                id="consent-input"
+                name="consent"
+                value="yes"
+                class="accent-green-medium"
+              />
               <span class="text-field__label"
                 >I consent to being contacted by the team
                 <span class="text-field__required">*</span></span

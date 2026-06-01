@@ -418,9 +418,6 @@
   line-height: var(--tw-leading, var(--text-sm--line-height));
   color: var(--color-red);
   opacity: 0%;
-  transition-property: opacity;
-  transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
-  transition-duration: var(--tw-duration, var(--default-transition-duration));
 }
 .field__error--show {
   opacity: 100%;
