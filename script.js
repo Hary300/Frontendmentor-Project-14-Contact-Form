@@ -25,12 +25,19 @@ form.addEventListener('submit', function (event) {
 
   const consent = validateSelectionInput('consent', 'checkbox-field');
 
-  console.log(firstName, lastName, email, message, query, consent);
-
   if (!firstName || !lastName || !email || !message || !query || !consent)
     return;
 
-  // sendDataUser();
+  const data = {
+    firstName,
+    lastName,
+    email,
+    message,
+    query,
+    consent,
+  };
+
+  sendMessage(data);
 
   toast.classList.add('toast--show');
   setTimeout(() => toast.classList.remove('toast--show'), 2000);
@@ -66,4 +73,22 @@ function validateSelectionInput(name, field) {
 
   fieldError.classList.remove('field__error--show');
   return selectionInput.value;
+}
+
+async function sendMessage(data) {
+  const res = await fetch('http://localhost:3000/contact_messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(data),
+  });
+
+  if (!res.ok) {
+    const err = new Error(res.status);
+    throw err;
+  }
+
+  const responseData = await res.json();
+  console.log(responseData);
 }
