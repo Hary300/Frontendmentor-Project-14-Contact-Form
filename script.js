@@ -3,6 +3,7 @@ const firstNameInput = document.querySelector('#first-name-input');
 const lastNameInput = document.querySelector('#last-name-input');
 const emailInput = document.querySelector('#email-input');
 const messageInput = document.querySelector('#message-input');
+const toast = document.querySelector('.toast');
 
 form.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -25,6 +26,14 @@ form.addEventListener('submit', function (event) {
   const consent = validateSelectionInput('consent', 'checkbox-field');
 
   console.log(firstName, lastName, email, message, query, consent);
+
+  if (!firstName || !lastName || !email || !message || !query || !consent)
+    return;
+
+  // sendDataUser();
+
+  toast.classList.add('toast--show');
+  setTimeout(() => toast.classList.remove('toast--show'), 2000);
 });
 
 function validateTextInput(textInput) {

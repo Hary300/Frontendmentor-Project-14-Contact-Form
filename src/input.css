@@ -73,6 +73,14 @@
   @apply opacity-100;
 }
 
+.toast {
+  @apply fixed md:absolute opacity-0 top-10 left-1/2 -translate-x-1/2 flex flex-col gap-2 p-3 min-w-90 bg-grey-darker text-white rounded-lg transition-opacity duration-400;
+}
+
+.toast--show {
+  @apply opacity-100;
+}
+
 .attribution {
   font-size: 0.6875rem;
   text-align: center;
