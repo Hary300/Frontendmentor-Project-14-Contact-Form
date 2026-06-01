@@ -7,15 +7,7 @@
     <title>Frontend Mentor | Contact form</title>
     <link rel="stylesheet" href="./src/output.css" />
 
-    <style>
-      .attribution {
-        font-size: 0.6875rem;
-        text-align: center;
-      }
-      .attribution a {
-        color: hsl(228, 45%, 44%);
-      }
-    </style>
+    <script src="./script.js" defer></script>
   </head>
   <body
     class="bg-green-lighter text-grey-darker px-4 py-6 font-karla flex flex-col justify-center items-center md:min-h-screen gap-2"
@@ -33,30 +25,38 @@
             class="name flex flex-col md:flex-row justify-between gap-4 md:gap-2"
           >
             <!-- first name -->
-            <label for="first-name" class="text-field">
+            <label for="first-name-input" class="text-field">
               <span class="text-field__label"
                 >First Name <span class="text-field__required">*</span></span
               >
-              <input type="text" id="first-name" class="text-field__input" />
+              <input
+                type="text"
+                id="first-name-input"
+                class="text-field__input"
+              />
               <p class="field__error">This field is required</p>
             </label>
 
             <!-- last name -->
-            <label for="last-name" class="text-field">
+            <label for="last-name-input" class="text-field">
               <span class="text-field__label"
                 >Last Name <span class="text-field__required">*</span></span
               >
-              <input type="text" id="last-name" class="text-field__input" />
+              <input
+                type="text"
+                id="last-name-input"
+                class="text-field__input"
+              />
               <p class="field__error">This field is required</p>
             </label>
           </div>
 
           <!-- Email Address -->
-          <label for="email" class="text-field">
+          <label for="email-input" class="text-field">
             <span class="text-field__label">
               Email Address <span class="text-field__required">*</span>
             </span>
-            <input type="text" id="email" class="text-field__input" />
+            <input type="text" id="email-input" class="text-field__input" />
             <p class="field__error">Please enter a valid email address</p>
           </label>
 
@@ -72,6 +72,7 @@
                   type="radio"
                   id="general"
                   name="query-type"
+                  value="general-enquiry"
                   class="accent-green-medium"
                 />
                 General Enquiry
@@ -82,6 +83,7 @@
                   type="radio"
                   id="support"
                   name="query-type"
+                  value="support-request"
                   class="accent-green-medium"
                 />
                 Support Request
@@ -92,26 +94,48 @@
           </fieldset>
 
           <!-- Message -->
-          <label for="email" class="text-field"
+          <label for="message" class="text-field"
             ><span class="text-field__label"
               >Message <span class="text-field__required">*</span></span
             >
             <textarea
               type="text"
-              id="email"
+              id="message"
               class="text-field__input"
               rows="5"
             ></textarea>
             <p class="field__error">This field is required</p>
           </label>
 
-          <!--  -->
+          <!-- Checkbox -->
+          <fieldset class="checkbox-field">
+            <label
+              for="consent"
+              class="checkbox-option flex gap-3 items-center cursor-pointer"
+            >
+              <input type="checkbox" id="consent" class="accent-green-medium" />
+              <span class="text-field__label"
+                >I consent to being contacted by the team
+                <span class="text-field__required">*</span></span
+              >
+            </label>
+            <p class="field__error">
+              To submit this form please consent to being contacted
+            </p>
+          </fieldset>
+
+          <!-- Submit button -->
+          <button
+            type="submit"
+            class="bg-green-medium rounded-lg text-white py-1.5 cursor-pointer shadow-[0_0_4px_rgba(0,0,0,0.3)] transition-all active:shadow-none"
+          >
+            Submit
+          </button>
         </form>
       </main>
     </div>
 
-    <!--    I consent to being contacted by the team To submit this
-    form, please consent to being contacted Submit Message Sent! Thanks for
+    <!--     Message Sent! Thanks for
     completing the form. We'll be in touch soon! -->
 
     <footer class="attribution">
