@@ -29,8 +29,8 @@ Users should be able to:
 
 ### Screenshot
 
-![Mobile](./screenshot.jpg)
-![Desktop](./screenshot.jpg)
+![Mobile](./assets/images/mobile.png)
+![Desktop](./assets/images/desktop.png)
 
 ### Links
 
@@ -49,5 +49,16 @@ Users should be able to:
 - Mobile-first workflow
 - express
 - zod
+- mongoose
 
-### What I learned
+## What I Learned
+
+- Building and handling form submissions using Express.js.
+- Validating user input before storing data.
+- Connecting a backend application to MongoDB with Mongoose.
+- Creating API endpoints for sending and retrieving messages.
+- Managing asynchronous database operations using async/await.
+- Implementing error handling and proper HTTP status codes.
+- Structuring a backend project using routes, controllers, and models.
+
+This project gave me a better understanding of backend development fundamentals and how data is processed and stored in a web application.

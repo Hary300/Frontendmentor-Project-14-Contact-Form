@@ -76,13 +76,16 @@ function validateSelectionInput(name, field) {
 }
 
 async function sendMessage(data) {
-  const res = await fetch('http://localhost:3000/contact_messages', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify(data),
-  });
+  const res = await fetch(
+    'https://personal-project-23-contact-message-backend-production.up.railway.app/contact_messages',
+    {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    }
+  );
 
   if (!res.ok) {
     const err = new Error(res.status);
