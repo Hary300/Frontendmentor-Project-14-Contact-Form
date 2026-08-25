@@ -74,7 +74,7 @@
 }
 
 .toast {
-  @apply fixed md:absolute opacity-0 top-10 left-1/2 -translate-x-1/2 flex flex-col gap-2 p-3 min-w-90 bg-grey-darker text-white rounded-lg transition-opacity duration-400;
+  @apply fixed md:absolute opacity-0 top-10 left-1/2 -translate-x-1/2 flex flex-col gap-2 p-3 min-w-90 bg-grey-darker rounded-lg transition-opacity duration-400;
 }
 
 .toast--show {

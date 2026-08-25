@@ -3,7 +3,11 @@ const firstNameInput = document.querySelector('#first-name-input');
 const lastNameInput = document.querySelector('#last-name-input');
 const emailInput = document.querySelector('#email-input');
 const messageInput = document.querySelector('#message-input');
-const toast = document.querySelector('.toast');
+const successToast = document.querySelector('.success-toast');
+const failToast = document.querySelector('.fail-toast');
+
+console.log(successToast);
+console.log(failToast);
 
 form.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -38,9 +42,6 @@ form.addEventListener('submit', function (event) {
   };
 
   sendMessage(data);
-
-  toast.classList.add('toast--show');
-  setTimeout(() => toast.classList.remove('toast--show'), 2000);
 });
 
 function validateTextInput(textInput) {
@@ -76,22 +77,31 @@ function validateSelectionInput(name, field) {
 }
 
 async function sendMessage(data) {
-  const res = await fetch(
-    'https://personal-project-23-contact-message-backend-production.up.railway.app/contact_messages',
-    {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(data),
+  try {
+    const res = await fetch(
+      'https://personal-project-23-contact-message-backend-production.up.railway.app/api/message',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      }
+    );
+
+    if (!res.ok) {
+      const err = new Error(res.status);
+      throw err;
     }
-  );
 
-  if (!res.ok) {
-    const err = new Error(res.status);
-    throw err;
+    successToast.classList.add('toast--show');
+    setTimeout(() => successToast.classList.remove('toast--show'), 2000);
+
+    const responseData = await res.json();
+    console.log(responseData);
+  } catch (error) {
+    console.log(error);
+    failToast.classList.add('toast--show');
+    setTimeout(() => failToast.classList.remove('toast--show'), 2000);
   }
-
-  const responseData = await res.json();
-  console.log(responseData);
 }
