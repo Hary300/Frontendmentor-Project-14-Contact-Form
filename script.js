@@ -5,9 +5,7 @@ const emailInput = document.querySelector('#email-input');
 const messageInput = document.querySelector('#message-input');
 const successToast = document.querySelector('.success-toast');
 const failToast = document.querySelector('.fail-toast');
-
-console.log(successToast);
-console.log(failToast);
+const submitButton = document.querySelector('#submit-button');
 
 form.addEventListener('submit', function (event) {
   event.preventDefault();
@@ -76,15 +74,22 @@ function validateSelectionInput(name, field) {
   return selectionInput.value;
 }
 
-const isSuccess = false;
+const isSuccess = true;
 
 async function sendMessage(data) {
+  submitButton.textContent = 'Submitting...';
+  submitButton.disabled = true;
+  await new Promise((resolve) => setTimeout(resolve, 3000));
+
   if (isSuccess) {
     successToast.classList.add('toast--show');
     setTimeout(() => successToast.classList.remove('toast--show'), 2000);
     console.log(data);
+    form.reset();
   } else {
     failToast.classList.add('toast--show');
     setTimeout(() => failToast.classList.remove('toast--show'), 2000);
   }
+  submitButton.disabled = false;
+  submitButton.textContent = 'Submit';
 }
