@@ -76,31 +76,14 @@ function validateSelectionInput(name, field) {
   return selectionInput.value;
 }
 
+const isSuccess = false;
+
 async function sendMessage(data) {
-  try {
-    const res = await fetch(
-      'https://personal-project-23-contact-message-backend-production.up.railway.app/api/message',
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      }
-    );
-
-    if (!res.ok) {
-      const err = new Error(res.status);
-      throw err;
-    }
-
+  if (isSuccess) {
     successToast.classList.add('toast--show');
     setTimeout(() => successToast.classList.remove('toast--show'), 2000);
-
-    const responseData = await res.json();
-    console.log(responseData);
-  } catch (error) {
-    console.log(error);
+    console.log(data);
+  } else {
     failToast.classList.add('toast--show');
     setTimeout(() => failToast.classList.remove('toast--show'), 2000);
   }
